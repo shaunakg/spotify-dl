@@ -28,6 +28,11 @@ def fetch_tracks(sp, item_type, url):
             total_songs = items.get('total')
             for item in items['items']:
                 track_info = item.get('track')
+                
+                if type(track_info) == None:
+                    offset += 1
+                    continue
+                
                 track_album_info = track_info.get('album')
                 
                 track_num = track_info.get('track_number')
